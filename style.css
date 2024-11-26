@@ -1,0 +1,36 @@
+body {
+    font-family: 'Arial', sans-serif; /* Или любой другой шрифт, который вам нравится */
+    margin: 0;
+    background-color: #f0f0f0; /* Светло-серый фон */
+    color: #333; /* Темно-серый текст */
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff; /* Белый фон для шапки */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Небольшая тень */
+  }
+  
+  header img {
+    max-width: 600px; /* Максимальная ширина изображения */
+    border-radius: 20px; /* Закругленные углы */
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #c0392b; /* Красный цвет заголовка */
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto; /* Центрирование контента */
+    line-height: 1.6; /* Расстояние между строками */
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
