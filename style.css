@@ -1,36 +1,41 @@
 body {
-    font-family: 'Arial', sans-serif; /* Или любой другой шрифт, который вам нравится */
-    margin: 0;
-    background-color: #f0f0f0; /* Светло-серый фон */
-    color: #333; /* Темно-серый текст */
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-image: url("tianka.jpg"); /* Замените image.jpg на имя вашей картинки */
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
   header {
+    background-color: #f0f0f081;
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
-    background-color: #fff; /* Белый фон для шапки */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Небольшая тень */
-  }
-  
-  header img {
-    max-width: 600px; /* Максимальная ширина изображения */
-    border-radius: 20px; /* Закругленные углы */
-    margin-bottom: 20px;
   }
   
   h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #c0392b; /* Красный цвет заголовка */
+    margin-bottom: 0;
   }
   
-  main {
+  section {
+    margin-bottom: 30px;
     padding: 20px;
-    max-width: 600px;
-    margin: 0 auto; /* Центрирование контента */
-    line-height: 1.6; /* Расстояние между строками */
+    background-color: #f0f0f081;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   
-  p {
-    margin-bottom: 10px;
+  h2 {
+    margin-top: 0;
+  }
+  
+  ul, ol {
+    list-style-type: disc; /* или square, circle etc. */
+    padding-left: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
   }
