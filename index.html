@@ -3,19 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поздравляюю</title>
-    <link rel="stylesheet" href="style.css">
+    <title>С Днём Рождения, Мама!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #f8f4ff 50%, #f0fff4 100%);
+            color: #5a3d5a;
+            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-family: 'Marck Script', cursive;
+            font-size: 3rem;
+            color: #d46a6a;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Marck Script', cursive;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .garden {
+            display: none;
+            position: relative;
+            width: 100%;
+            min-height: 600px;
+            margin-top: 20px;
+        }
+        
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffc3a0 0%, #ffafbd 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 10px solid white;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .memory-flower {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 200px;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+        
+        .memory-flower:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .memory-flower h3 {
+            font-family: 'Marck Script', cursive;
+            color: #d46a6a;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        
+        .memory-flower p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .signature {
+            font-family: 'Marck Script', cursive;
+            font-size: 2rem;
+            color: #d46a6a;
+            margin-top: 40px;
+        }
+        
+        .petal {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(255,192,203,0.7) 0%, rgba(255,255,255,0.8) 100%);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7;
+            animation: falling linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .butterfly {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C60,20 70,25 80,20 C90,15 95,25 90,35 C85,45 70,50 50,50 C30,50 15,45 10,35 C5,25 10,15 20,20 C30,25 40,20 50,10 Z" fill="%23ff9a9e"/><path d="M50,90 C60,80 70,75 80,80 C90,85 95,75 90,65 C85,55 70,50 50,50 C30,50 15,55 10,65 C5,75 10,85 20,80 C30,75 40,80 50,90 Z" fill="%23fad0c4"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: flying 15s linear infinite;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        @keyframes flying {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50vw, 20vh) rotate(90deg);
+            }
+            50% {
+                transform: translate(30vw, 50vh) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20vw, 30vh) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6b6b;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .music-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .welcome-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .cake {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="50" width="60" height="30" rx="5" fill="%23f8d7da"/><rect x="25" y="40" width="50" height="10" rx="5" fill="%23f5b5b5"/><circle cx="35" cy="35" r="5" fill="%23ff9a9e"/><circle cx="50" cy="30" r="5" fill="%23ff9a9e"/><circle cx="65" cy="35" r="5" fill="%23ff9a9e"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: bounce 2s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .gift {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" fill="%23d46a6a"/><rect x="45" y="20" width="10" height="50" fill="%23a83232"/><rect x="20" y="30" width="60" height="10" fill="%23ff9a9e"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: swing 3s ease infinite;
+            transform-origin: top center;
+        }
+        
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="decoration" id="decoration"></div>
+    
     <div class="container">
-        <img src = "GDE.jpg" id = "img1">
-        <div id="counter">Привет, нажми на кнопку!</div>
-        <button id="clickButton1"></button>
-        <button id="clickButton">Кликни меня!</button>
-        <button id="clickButton2"></button>
+        <div class="music-control" id="musicControl">♪</div>
+        
+        <div class="welcome-screen" id="welcomeScreen">
+            <h1>Самой Дорогой, Любимой Маме!</h1>
+            <p class="welcome-text">Открой этот волшебный сад, наполненный любовью и благодарностью, чтобы узнать, как сильно я тебя люблю.</p>
+            <button class="btn" id="enterGarden">Войти в Сад</button>
+            
+            <div class="cake"></div>
+            <div class="gift"></div>
+        </div>
+        
+        <div class="garden" id="garden">
+            <div class="photo-frame">
+                <img src="Photo.jpg" alt="Мама">
+            </div>
+            
+            <div class="memory-flower" style="top: 10%; left: 5%;">
+                <h3>Нежность</h3>
+                <p>Мама, твоя нежность – это как мягкий плед в холодный день. Спасибо тебе за твои объятия и тепло.</p>
+            </div>
+            
+            <div class="memory-flower" style="top: 20%; right: 5%;">
+                <h3>Забота</h3>
+                <p>Твоя забота – это как солнечный свет, согревающий меня каждый день. Спасибо тебе за то, что всегда рядом.</p>
+            </div>
+            
+            <div class="memory-flower" style="top: 60%; left: 10%;">
+                <h3>Поддержка</h3>
+                <p>Твоя поддержка – это крылья, которые помогают мне летать. Спасибо за веру в меня, даже когда я сам сомневаюсь.</p>
+            </div>
+            
+            <div class="memory-flower" style="top: 50%; right: 10%;">
+                <h3>Мудрость</h3>
+                <p>Твоя мудрость – это путеводная звезда, которая помогает мне найти правильный путь. Спасибо за твои советы и наставления.</p>
+            </div>
+            
+            <div class="memory-flower" style="bottom: 10%; left: 50%; transform: translateX(-50%);">
+                <h3>Любовь</h3>
+                <p>Твоя любовь – это самое ценное, что у меня есть. Спасибо за безусловную любовь и поддержку. Я люблю тебя больше всего на свете!</p>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <p>Дорогая мамочка! В этот особенный день я хочу сказать тебе, как сильно я тебя люблю и ценю. Ты – моя самая лучшая подруга, моя наставница и мой самый любимый человек. Спасибо тебе за все!</p>
+                <p class="signature">С любовью, твоя Каролина</p>
+            </div>
+            
+            <button class="btn" id="addMemory" style="margin-top: 20px;">Добавить своё воспоминание</button>
+        </div>
     </div>
-    <script src="script.js"></script>
-    <marquee id="header" scrolldelay = 30 truespeed>Этот сайт создан исключительно в целях поздравления моей девушки Лины с первым месяцем 3-его года нашых отношений</marquee>
-</marquee>
+    
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const enterBtn = document.getElementById('enterGarden');
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const garden = document.getElementById('garden');
+            const decoration = document.getElementById('decoration');
+            const bgMusic = document.getElementById('bgMusic');
+            const musicControl = document.getElementById('musicControl');
+            const addMemoryBtn = document.getElementById('addMemory');
+            
+            // Создаем лепестки
+            function createPetals() {
+                for (let i = 0; i < 15; i++) {
+                    const petal = document.createElement('div');
+                    petal.className = 'petal';
+                    
+                    // Случайный размер
+                    const size = Math.random() * 15 + 5;
+                    petal.style.width = `${size}px`;
+                    petal.style.height = `${size}px`;
+                    
+                    // Случайное положение
+                    petal.style.left = `${Math.random() * 100}%`;
+                    
+                    // Случайная анимация
+                    petal.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                    petal.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    decoration.appendChild(petal);
+                }
+            }
+            
+            // Создаем бабочек
+            function createButterflies() {
+                for (let i = 0; i < 5; i++) {
+                    const butterfly = document.createElement('div');
+                    butterfly.className = 'butterfly';
+                    
+                    // Случайный размер
+                    const size = Math.random() * 20 + 20;
+                    butterfly.style.width = `${size}px`;
+                    butterfly.style.height = `${size}px`;
+                    
+                    // Случайная анимация
+                    butterfly.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                    butterfly.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    decoration.appendChild(butterfly);
+                }
+            }
+            
+            // Создаем сердечки при клике
+            document.addEventListener('click', function(e) {
+                if (Math.random() > 0.7) { // 30% chance to create a heart
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${e.clientX}px`;
+                    heart.style.top = `${e.clientY}px`;
+                    document.body.appendChild(heart);
+                    
+                    // Удаляем сердечко после анимации
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }
+            });
+            
+            // Вход в сад
+            enterBtn.addEventListener('click', function() {
+                welcomeScreen.style.opacity = '0';
+                welcomeScreen.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                    garden.style.display = 'block';
+                    
+                    // Запускаем анимацию появления
+                    setTimeout(() => {
+                        garden.style.opacity = '1';
+                        garden.style.transform = 'translateY(0)';
+                    }, 10);
+                    
+                    // Воспроизводим музыку
+                    bgMusic.volume = 0.3;
+                    bgMusic.play();
+                }, 500);
+            });
+            
+            // Управление музыкой
+            let isMusicPlaying = false;
+            musicControl.addEventListener('click', function() {
+                if (isMusicPlaying) {
+                    bgMusic.pause();
+                    musicControl.textContent = '♪';
+                } else {
+                    bgMusic.play();
+                    musicControl.textContent = '❚❚';
+                }
+                isMusicPlaying = !isMusicPlaying;
+            });
+            
+            // Добавление воспоминания
+            addMemoryBtn.addEventListener('click', function() {
+                const title = prompt('Введите название воспоминания (например, "Наш смех")');
+                if (title) {
+                    const text = prompt('Опишите это воспоминание');
+                    if (text) {
+                        const newMemory = document.createElement('div');
+                        newMemory.className = 'memory-flower';
+                        
+                        // Случайное положение
+                        const top = Math.random() * 60 + 10;
+                        const left = Math.random() * 60 + 10;
+                        newMemory.style.top = `${top}%`;
+                        newMemory.style.left = `${left}%`;
+                        
+                        newMemory.innerHTML = `
+                            <h3>${title}</h3>
+                            <p>${text}</p>
+                        `;
+                        
+                        garden.insertBefore(newMemory, addMemoryBtn);
+                        
+                        // Анимация появления
+                        setTimeout(() => {
+                            newMemory.style.opacity = '1';
+                            newMemory.style.transform = 'scale(1)';
+                        }, 10);
+                    }
+                }
+            });
+            
+            // Инициализация
+            createPetals();
+            createButterflies();
+            
+            // Эффект увядания цветов через некоторое время
+            setTimeout(() => {
+                const flowers = document.querySelectorAll('.memory-flower');
+                flowers.forEach(flower => {
+                    flower.style.transition = 'all 2s ease';
+                    flower.style.opacity = '0.7';
+                    flower.style.transform = 'scale(0.95)';
+                });
+            }, 30000); // Через 30 секунд
+        });
+    </script>
 </body>
 </html>
