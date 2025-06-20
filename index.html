@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>С Днём Рождения, Мама!</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400&display=swap');
@@ -14,7 +14,7 @@
             background: linear-gradient(135deg, #fff5f5 0%, #f8f4ff 50%, #f0fff4 100%);
             color: #5a3d5a;
             overflow-x: hidden;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -33,11 +33,12 @@
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             overflow: hidden;
+            margin: 20px 0;
         }
         
         h1 {
             font-family: 'Marck Script', cursive;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #d46a6a;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
@@ -46,15 +47,17 @@
         .btn {
             background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
             border: none;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-family: 'Marck Script', cursive;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
+            margin: 15px 0;
+            width: 80%;
+            max-width: 300px;
         }
         
         .btn:hover {
@@ -66,23 +69,23 @@
             display: none;
             position: relative;
             width: 100%;
-            min-height: 600px;
-            margin-top: 20px;
+            min-height: auto;
+            margin-top: 15px;
         }
         
         .photo-frame {
-            width: 300px;
-            height: 300px;
-            margin: 0 auto 30px;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
             border-radius: 50%;
             background: linear-gradient(45deg, #ffc3a0 0%, #ffafbd 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             position: relative;
             overflow: hidden;
-            border: 10px solid white;
+            border: 8px solid white;
         }
         
         .photo-frame img {
@@ -93,40 +96,50 @@
         }
         
         .memory-flower {
-            position: absolute;
+            position: relative;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 200px;
+            border-radius: 15px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            width: 90%;
+            margin: 10px auto;
             transition: all 0.5s ease;
             border: 1px solid rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(5px);
             cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .memory-flower.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .memory-flower:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
         
         .memory-flower h3 {
             font-family: 'Marck Script', cursive;
             color: #d46a6a;
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
         
         .memory-flower p {
             font-size: 0.9rem;
             margin-bottom: 0;
+            line-height: 1.4;
         }
         
         .signature {
             font-family: 'Marck Script', cursive;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #d46a6a;
-            margin-top: 40px;
+            margin-top: 25px;
         }
         
         .petal {
@@ -149,8 +162,8 @@
         
         .butterfly {
             position: absolute;
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C60,20 70,25 80,20 C90,15 95,25 90,35 C85,45 70,50 50,50 C30,50 15,45 10,35 C5,25 10,15 20,20 C30,25 40,20 50,10 Z" fill="%23ff9a9e"/><path d="M50,90 C60,80 70,75 80,80 C90,85 95,75 90,65 C85,55 70,50 50,50 C30,50 15,55 10,65 C5,75 10,85 20,80 C30,75 40,80 50,90 Z" fill="%23fad0c4"/></svg>');
             background-size: contain;
             background-repeat: no-repeat;
@@ -179,7 +192,7 @@
         
         .heart {
             position: absolute;
-            font-size: 20px;
+            font-size: 18px;
             color: #ff6b6b;
             animation: float 4s ease-in-out infinite;
             opacity: 0;
@@ -194,25 +207,26 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100px) scale(1.5);
+                transform: translateY(-80px) scale(1.3);
                 opacity: 0;
             }
         }
         
         .music-control {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             z-index: 100;
+            font-size: 14px;
         }
         
         .welcome-screen {
@@ -221,17 +235,19 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
         }
         
         .welcome-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            max-width: 100%;
+            padding: 0 10px;
+            line-height: 1.5;
         }
         
         .decoration {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
@@ -243,10 +259,10 @@
         
         .cake {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
+            bottom: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="50" width="60" height="30" rx="5" fill="%23f8d7da"/><rect x="25" y="40" width="50" height="10" rx="5" fill="%23f5b5b5"/><circle cx="35" cy="35" r="5" fill="%23ff9a9e"/><circle cx="50" cy="30" r="5" fill="%23ff9a9e"/><circle cx="65" cy="35" r="5" fill="%23ff9a9e"/></svg>');
             background-size: contain;
             background-repeat: no-repeat;
@@ -258,16 +274,16 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
         }
         
         .gift {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            width: 70px;
-            height: 70px;
+            bottom: 15px;
+            left: 15px;
+            width: 55px;
+            height: 55px;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" fill="%23d46a6a"/><rect x="45" y="20" width="10" height="50" fill="%23a83232"/><rect x="20" y="30" width="60" height="10" fill="%23ff9a9e"/></svg>');
             background-size: contain;
             background-repeat: no-repeat;
@@ -281,6 +297,92 @@
             }
             50% {
                 transform: rotate(5deg);
+            }
+        }
+        
+        /* Медиазапросы для адаптации */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.5rem;
+                width: auto;
+            }
+            
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .memory-flower {
+                position: absolute;
+                width: auto;
+                max-width: 200px;
+                margin: 0;
+            }
+            
+            .memory-flower:nth-child(2) {
+                top: 10%;
+                left: 5%;
+            }
+            
+            .memory-flower:nth-child(3) {
+                top: 20%;
+                right: 5%;
+            }
+            
+            .memory-flower:nth-child(4) {
+                top: 60%;
+                left: 10%;
+            }
+            
+            .memory-flower:nth-child(5) {
+                top: 50%;
+                right: 10%;
+            }
+            
+            .memory-flower:nth-child(6) {
+                bottom: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .memory-flower.visible:nth-child(6) {
+                transform: translateX(-50%) translateY(0);
+            }
+            
+            .signature {
+                font-size: 2rem;
+            }
+            
+            .welcome-text {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .photo-frame {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .container {
+                padding: 30px;
+            }
+        }
+        
+        /* Анимация появления элементов */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -305,37 +407,37 @@
                 <img src="Photo.jpg" alt="Мама">
             </div>
             
-            <div class="memory-flower" style="top: 10%; left: 5%;">
+            <div class="memory-flower">
                 <h3>Нежность</h3>
                 <p>Мама, твоя нежность – это как мягкий плед в холодный день. Спасибо тебе за твои объятия и тепло.</p>
             </div>
             
-            <div class="memory-flower" style="top: 20%; right: 5%;">
+            <div class="memory-flower">
                 <h3>Забота</h3>
                 <p>Твоя забота – это как солнечный свет, согревающий меня каждый день. Спасибо тебе за то, что всегда рядом.</p>
             </div>
             
-            <div class="memory-flower" style="top: 60%; left: 10%;">
+            <div class="memory-flower">
                 <h3>Поддержка</h3>
                 <p>Твоя поддержка – это крылья, которые помогают мне летать. Спасибо за веру в меня, даже когда я сам сомневаюсь.</p>
             </div>
             
-            <div class="memory-flower" style="top: 50%; right: 10%;">
+            <div class="memory-flower">
                 <h3>Мудрость</h3>
                 <p>Твоя мудрость – это путеводная звезда, которая помогает мне найти правильный путь. Спасибо за твои советы и наставления.</p>
             </div>
             
-            <div class="memory-flower" style="bottom: 10%; left: 50%; transform: translateX(-50%);">
+            <div class="memory-flower">
                 <h3>Любовь</h3>
                 <p>Твоя любовь – это самое ценное, что у меня есть. Спасибо за безусловную любовь и поддержку. Я люблю тебя больше всего на свете!</p>
             </div>
             
-            <div style="margin-top: 40px;">
+            <div style="margin-top: 30px;">
                 <p>Дорогая мамочка! В этот особенный день я хочу сказать тебе, как сильно я тебя люблю и ценю. Ты – моя самая лучшая подруга, моя наставница и мой самый любимый человек. Спасибо тебе за все!</p>
                 <p class="signature">С любовью, твоя Каролина</p>
             </div>
             
-            <button class="btn" id="addMemory" style="margin-top: 20px;">Добавить своё воспоминание</button>
+            <button class="btn" id="addMemory" style="margin-top: 15px;">Добавить своё воспоминание</button>
         </div>
     </div>
     
@@ -353,6 +455,7 @@
             const bgMusic = document.getElementById('bgMusic');
             const musicControl = document.getElementById('musicControl');
             const addMemoryBtn = document.getElementById('addMemory');
+            const memoryFlowers = document.querySelectorAll('.memory-flower');
             
             // Создаем лепестки
             function createPetals() {
@@ -361,7 +464,7 @@
                     petal.className = 'petal';
                     
                     // Случайный размер
-                    const size = Math.random() * 15 + 5;
+                    const size = Math.random() * 12 + 5;
                     petal.style.width = `${size}px`;
                     petal.style.height = `${size}px`;
                     
@@ -383,7 +486,7 @@
                     butterfly.className = 'butterfly';
                     
                     // Случайный размер
-                    const size = Math.random() * 20 + 20;
+                    const size = Math.random() * 15 + 15;
                     butterfly.style.width = `${size}px`;
                     butterfly.style.height = `${size}px`;
                     
@@ -415,7 +518,7 @@
             // Вход в сад
             enterBtn.addEventListener('click', function() {
                 welcomeScreen.style.opacity = '0';
-                welcomeScreen.style.transform = 'translateY(-20px)';
+                welcomeScreen.style.transform = 'translateY(-10px)';
                 
                 setTimeout(() => {
                     welcomeScreen.style.display = 'none';
@@ -425,12 +528,21 @@
                     setTimeout(() => {
                         garden.style.opacity = '1';
                         garden.style.transform = 'translateY(0)';
+                        
+                        // Анимация появления цветов с задержкой
+                        memoryFlowers.forEach((flower, index) => {
+                            setTimeout(() => {
+                                flower.classList.add('visible');
+                            }, index * 200);
+                        });
                     }, 10);
                     
                     // Воспроизводим музыку
                     bgMusic.volume = 0.3;
-                    bgMusic.play();
-                }, 500);
+                    bgMusic.play().catch(e => console.log("Автовоспроизведение заблокировано"));
+                    isMusicPlaying = true;
+                    musicControl.textContent = '❚❚';
+                }, 300);
             });
             
             // Управление музыкой
@@ -440,7 +552,7 @@
                     bgMusic.pause();
                     musicControl.textContent = '♪';
                 } else {
-                    bgMusic.play();
+                    bgMusic.play().catch(e => console.log("Ошибка воспроизведения"));
                     musicControl.textContent = '❚❚';
                 }
                 isMusicPlaying = !isMusicPlaying;
@@ -455,12 +567,6 @@
                         const newMemory = document.createElement('div');
                         newMemory.className = 'memory-flower';
                         
-                        // Случайное положение
-                        const top = Math.random() * 60 + 10;
-                        const left = Math.random() * 60 + 10;
-                        newMemory.style.top = `${top}%`;
-                        newMemory.style.left = `${left}%`;
-                        
                         newMemory.innerHTML = `
                             <h3>${title}</h3>
                             <p>${text}</p>
@@ -470,8 +576,7 @@
                         
                         // Анимация появления
                         setTimeout(() => {
-                            newMemory.style.opacity = '1';
-                            newMemory.style.transform = 'scale(1)';
+                            newMemory.classList.add('visible');
                         }, 10);
                     }
                 }
@@ -483,11 +588,10 @@
             
             // Эффект увядания цветов через некоторое время
             setTimeout(() => {
-                const flowers = document.querySelectorAll('.memory-flower');
-                flowers.forEach(flower => {
+                memoryFlowers.forEach(flower => {
                     flower.style.transition = 'all 2s ease';
-                    flower.style.opacity = '0.7';
-                    flower.style.transform = 'scale(0.95)';
+                    flower.style.opacity = '0.8';
+                    flower.style.transform = 'scale(0.97)';
                 });
             }, 30000); // Через 30 секунд
         });
